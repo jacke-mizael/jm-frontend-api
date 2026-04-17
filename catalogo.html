@@ -30,9 +30,9 @@
             <section class="login-form-area">
                 <h1>Acesse sua conta!</h1>
 
-                <div class="auth-mode-switch" role="tablist" aria-label="Alternar autenticacao">
+                <div class="auth-mode-switch auth-mode-login-only" role="tablist" aria-label="Alternar autenticacao" hidden>
                     <button id="btnModoLogin" type="button" class="auth-mode-btn is-active" role="tab" aria-selected="true">Login</button>
-                    <button id="btnModoCadastro" type="button" class="auth-mode-btn" role="tab" aria-selected="false">Cadastro</button>
+                    <button id="btnModoCadastro" type="button" class="auth-mode-btn" role="tab" aria-selected="false" title="Cadastro temporariamente desativado" disabled hidden>Cadastro</button>
                 </div>
 
                 <div id="authFlowLogin" class="auth-flow is-visible">
@@ -54,10 +54,10 @@
                         <p id="senhaEmailHint" class="auth-step-hint">Entrando com: -</p>
                     </form>
 
-                    <p class="auth-inline-switch">Nao tem conta? <button type="button" id="btnIrCadastro" class="btn-inline">Criar cadastro</button></p>
+                    <p class="auth-inline-switch" hidden>Nao tem conta? <button type="button" id="btnIrCadastro" class="btn-inline" title="Cadastro temporariamente desativado" disabled>Cadastro indisponivel</button></p>
                 </div>
 
-                <div id="authFlowCadastro" class="auth-flow" aria-hidden="true">
+                <div id="authFlowCadastro" class="auth-flow" aria-hidden="true" hidden>
                     <form id="formCadastroEmail" class="auth-step is-visible" novalidate>
                         <label for="cadastroEmail">E-mail</label>
                         <input id="cadastroEmail" type="email" placeholder="Seu melhor e-mail" autocomplete="email" required>

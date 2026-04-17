@@ -8,7 +8,10 @@ import {
 } from "../core/feedback.js";
 import { resetSessionState } from "../core/session.js";
 import { api } from "../services/api.js";
-import { clearToken, saveToken } from "../services/storage.js";
+import {
+    clearToken,
+    saveToken
+} from "../services/storage.js";
 import {
     buildProfilePayload,
     renderPerfilResumo,

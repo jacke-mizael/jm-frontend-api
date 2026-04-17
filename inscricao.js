@@ -1,4 +1,4 @@
-const pipefyForm = document.getElementById("pipefyForm");
+﻿const pipefyForm = document.getElementById("pipefyForm");
 const iframeLoading = document.getElementById("iframeLoading");
 
 function hideLoadingState() {

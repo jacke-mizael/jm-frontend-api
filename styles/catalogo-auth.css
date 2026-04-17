@@ -101,6 +101,16 @@
     background: #eff4f6;
 }
 
+.auth-mode-switch.auth-mode-login-only {
+    grid-template-columns: 1fr;
+}
+
+.auth-mode-switch[hidden],
+.auth-inline-switch[hidden],
+.auth-flow[hidden] {
+    display: none !important;
+}
+
 .auth-mode-btn {
     border: 0;
     border-radius: 8px;
@@ -116,6 +126,14 @@
 .auth-mode-btn:hover {
     transform: translateY(-1px);
     background: #e7eef1;
+}
+
+.auth-mode-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    background: #dde5e8;
+    color: #6c7a80;
+    transform: none;
 }
 
 .auth-mode-btn.is-active {
@@ -149,6 +167,13 @@
 
 .btn-inline:hover {
     color: #23464c;
+}
+
+.btn-inline:disabled {
+    color: #7b8388;
+    cursor: not-allowed;
+    text-decoration: none;
+    opacity: 0.9;
 }
 
 .auth-step label {

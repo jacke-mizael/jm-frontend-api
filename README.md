@@ -69,6 +69,10 @@ localStorage.setItem("jm.apiBaseUrl", "http://localhost:8081");
 - Cadastro em 2 etapas
 - Token JWT persistido em localStorage na chave jm.jwt
 
+### Inscrição (Pipefy)
+
+- Página dedicada em `inscricao.html` com iframe do formulário Pipefy
+
 ### Catálogo
 
 Fluxo hierárquico obrigatório:
