@@ -1,0 +1,6 @@
+/* Arquivo de entrada de estilos do catalogo. */
+@import url("./styles/catalogo-base.css");
+@import url("./styles/catalogo-auth.css");
+@import url("./styles/catalogo-platform.css");
+@import url("./styles/catalogo-content.css");
+@import url("./styles/catalogo-responsive.css");

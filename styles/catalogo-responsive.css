@@ -1,0 +1,108 @@
+@media (max-width: 1080px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+
+    .lesson-copy strong {
+        font-size: 1.15rem;
+    }
+
+    .lesson-list {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+    }
+
+    .users-row {
+        grid-template-columns: 1.2fr 1.2fr 0.8fr 0.9fr auto;
+    }
+}
+
+@media (max-width: 960px) {
+    .platform-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: min(82vw, 300px);
+        transform: translateX(-108%);
+        transition: transform 260ms ease;
+        border-right: 1px solid #d6e0e4;
+    }
+
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(22, 32, 37, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 220ms ease;
+        z-index: 20;
+    }
+
+    .sidebar-overlay.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .workspace {
+        padding: 16px 14px 24px;
+    }
+}
+
+@media (max-width: 860px) {
+    body {
+        padding: 0;
+    }
+
+    .login-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .login-visual {
+        min-height: 320px;
+    }
+
+    .workspace-view h3,
+    .section-banner h3,
+    .welcome-card h2 {
+        font-size: 1.35rem;
+    }
+
+    .cards-grid,
+    .cert-grid,
+    .lesson-list,
+    .profile-layout,
+    .kpi-grid,
+    .user-form {
+        grid-template-columns: 1fr;
+    }
+
+    .aula-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .workspace-header {
+        align-items: flex-start;
+    }
+
+    .workspace-title {
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
+}

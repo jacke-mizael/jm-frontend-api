@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Mentoria - Nail Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="catalogo.css">
+</head>
+<body>
+<div class="app-shell">
+    <section id="sceneLogin" class="scene is-visible" aria-label="Tela de login">
+        <div class="login-layout">
+            <aside class="login-visual" aria-hidden="true">
+                <img
+                    id="loginPrototypeImage"
+                    class="login-prototype-image"
+                    src="assets/foto-inscrição.png"
+                    decoding="async"
+                    alt="Protótipo visual da tela de acesso"
+                >
+                <div id="loginImageFallback" class="login-image-fallback">
+                    <p>Imagem do protótipo não encontrada.</p>
+                    <small>Adicione o arquivo em frontend/assets/login-prototipo.png</small>
+                </div>
+            </aside>
+
+            <section class="login-form-area">
+                <h1>Acesse sua conta!</h1>
+
+                <div class="auth-mode-switch" role="tablist" aria-label="Alternar autenticacao">
+                    <button id="btnModoLogin" type="button" class="auth-mode-btn is-active" role="tab" aria-selected="true">Login</button>
+                    <button id="btnModoCadastro" type="button" class="auth-mode-btn" role="tab" aria-selected="false">Cadastro</button>
+                </div>
+
+                <div id="authFlowLogin" class="auth-flow is-visible">
+                    <form id="formEmail" class="auth-step is-visible" novalidate>
+                        <label for="inputEmail">E-mail</label>
+                        <input id="inputEmail" type="email" placeholder="Seu e-mail" autocomplete="email" required>
+                        <div class="form-actions single-action">
+                            <button id="btnContinuarEmail" type="submit" class="btn-primary">Proximo</button>
+                        </div>
+                    </form>
+
+                    <form id="formSenha" class="auth-step" novalidate>
+                        <label for="inputSenha">Senha</label>
+                        <input id="inputSenha" type="password" placeholder="Sua senha" autocomplete="current-password" required>
+                        <div class="form-actions">
+                            <button type="button" id="btnVoltarEmail" class="btn-link">Voltar</button>
+                            <button id="btnEntrar" type="submit" class="btn-primary">Entrar</button>
+                        </div>
+                        <p id="senhaEmailHint" class="auth-step-hint">Entrando com: -</p>
+                    </form>
+
+                    <p class="auth-inline-switch">Nao tem conta? <button type="button" id="btnIrCadastro" class="btn-inline">Criar cadastro</button></p>
+                </div>
+
+                <div id="authFlowCadastro" class="auth-flow" aria-hidden="true">
+                    <form id="formCadastroEmail" class="auth-step is-visible" novalidate>
+                        <label for="cadastroEmail">E-mail</label>
+                        <input id="cadastroEmail" type="email" placeholder="Seu melhor e-mail" autocomplete="email" required>
+                        <div class="form-actions single-action">
+                            <button id="btnContinuarCadastroEmail" type="submit" class="btn-primary">Proximo</button>
+                        </div>
+                    </form>
+
+                    <form id="formCadastroSenha" class="auth-step" novalidate>
+                        <p id="cadastroEmailHint" class="auth-step-hint">Cadastro para: -</p>
+
+                        <label for="cadastroNome">Nome completo</label>
+                        <input id="cadastroNome" type="text" placeholder="Seu nome" autocomplete="name" required>
+
+                        <label for="cadastroTelefone">Telefone</label>
+                        <input id="cadastroTelefone" type="text" placeholder="(00) 00000-0000" autocomplete="tel" required>
+
+                        <label for="cadastroSenha">Senha</label>
+                        <input id="cadastroSenha" type="password" placeholder="Crie sua senha" autocomplete="new-password" required>
+
+                        <label for="cadastroSenhaConfirmacao">Confirmar senha</label>
+                        <input id="cadastroSenhaConfirmacao" type="password" placeholder="Confirme sua senha" autocomplete="new-password" required>
+
+                        <div class="form-actions">
+                            <button type="button" id="btnVoltarCadastroEmail" class="btn-link">Voltar</button>
+                            <button id="btnCriarConta" type="submit" class="btn-primary">Criar conta</button>
+                        </div>
+                    </form>
+
+                    <p class="auth-inline-switch">Ja possui conta? <button type="button" id="btnIrLogin" class="btn-inline">Fazer login</button></p>
+                </div>
+
+                <p id="authState" class="auth-feedback" role="status" aria-live="polite">Informe seu e-mail para continuar.</p>
+            </section>
+        </div>
+    </section>
+
+    <section id="scenePlataforma" class="scene" aria-label="Tela da plataforma">
+        <div class="platform-layout">
+            <aside id="sidebar" class="sidebar" aria-label="Menu principal">
+                <div class="logo-badge">JM</div>
+
+                <nav class="menu">
+                    <button type="button" class="menu-item is-active" data-action="cursos">
+                        <span class="menu-icon" aria-hidden="true">▶</span>
+                        <span>Cursos</span>
+                    </button>
+                    <button type="button" class="menu-item" data-action="certificados">
+                        <span class="menu-icon" aria-hidden="true">◌</span>
+                        <span>Certificados</span>
+                    </button>
+                    <button type="button" class="menu-item" data-action="perfil">
+                        <span class="menu-icon" aria-hidden="true">◔</span>
+                        <span>Perfil</span>
+                    </button>
+                </nav>
+
+                <button type="button" class="logout-item" data-action="sair">
+                    <span class="menu-icon" aria-hidden="true">↪</span>
+                    <span>Sair</span>
+                </button>
+            </aside>
+
+            <div id="sidebarOverlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+            <main class="workspace">
+                <header class="workspace-header">
+                    <button
+                        type="button"
+                        id="btnMenuToggle"
+                        class="menu-toggle"
+                        aria-label="Abrir menu de navegacao"
+                        aria-controls="sidebar"
+                        aria-expanded="false"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <h1 class="workspace-title">Plataforma de mentoria - Nail Design</h1>
+                </header>
+                <p id="statusLine" class="status-line" role="status" aria-live="polite">Carregando plataforma...</p>
+
+                <section class="welcome-card">
+                    <h2 id="welcomeTitle">Ola!</h2>
+                    <p id="welcomeText">Voce esta no lugar certo para acelerar sua jornada.</p>
+                </section>
+
+                <section id="viewCursos" class="workspace-view is-visible" aria-label="Lista de cursos">
+                    <h3>Cursos</h3>
+                    <div id="cardsCursos" class="cards-grid"></div>
+                </section>
+
+                <section id="viewCertificados" class="workspace-view" aria-label="Área de certificados">
+                    <h3>Certificados</h3>
+                    <p class="view-help">Seus certificados são liberados quando você conclui 100% das aulas do curso.</p>
+                    <div id="certificadosGrid" class="cert-grid"></div>
+                </section>
+
+                <section id="viewPerfil" class="workspace-view" aria-label="Área de perfil">
+                    <h3>Perfil</h3>
+                    <div class="profile-layout">
+                        <article class="profile-card">
+                            <h4>Dados da mentora</h4>
+                            <p><strong>Nome:</strong> <span id="perfilNome">-</span></p>
+                            <p><strong>E-mail:</strong> <span id="perfilEmail">-</span></p>
+                            <p><strong>Perfil:</strong> <span id="perfilRole">-</span></p>
+                        </article>
+
+                        <article class="profile-card">
+                            <h4>Resumo de progresso</h4>
+                            <div class="kpi-grid">
+                                <div class="kpi-item">
+                                    <small>Cursos disponíveis</small>
+                                    <strong id="kpiCursos">0</strong>
+                                </div>
+                                <div class="kpi-item">
+                                    <small>Aulas concluídas</small>
+                                    <strong id="kpiAulasConcluidas">0</strong>
+                                </div>
+                                <div class="kpi-item">
+                                    <small>Total de aulas</small>
+                                    <strong id="kpiAulasTotal">0</strong>
+                                </div>
+                                <div class="kpi-item">
+                                    <small>Certificados liberados</small>
+                                    <strong id="kpiCertificados">0</strong>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <article class="profile-card profile-management">
+                        <div class="profile-management-head">
+                            <h4>Meu perfil</h4>
+                            <p>Atualize apenas seus dados pessoais sem impactar as regras de negocio da plataforma.</p>
+                        </div>
+
+                        <form id="usuarioForm" class="user-form" novalidate>
+                            <label class="field">
+                                <span>Nome</span>
+                                <input id="usuarioNome" type="text" placeholder="Nome completo" required>
+                            </label>
+
+                            <label class="field">
+                                <span>Telefone</span>
+                                <input id="usuarioTelefone" type="text" placeholder="(00) 00000-0000" required>
+                            </label>
+
+                            <label class="field">
+                                <span>E-mail</span>
+                                <input id="usuarioEmail" type="email" placeholder="email@dominio.com" required>
+                            </label>
+
+                            <label class="field">
+                                <span>Perfil</span>
+                                <select id="usuarioRole" required>
+                                    <option value="">Selecione</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                    <option value="ALUNO">ALUNO</option>
+                                </select>
+                            </label>
+
+                            <p id="roleLockHint" class="role-lock-hint field-full"></p>
+
+                            <label class="field field-full">
+                                <span>Senha</span>
+                                <input id="usuarioSenha" type="password" placeholder="Obrigatoria para atualizar" required>
+                            </label>
+
+                            <div class="user-form-actions field-full">
+                                <button id="btnSalvarUsuario" type="submit" class="btn-primary">Salvar perfil</button>
+                                <button id="btnRecarregarPerfil" type="button" class="btn-secondary">Recarregar dados</button>
+                                <button id="btnLimparUsuario" type="button" class="btn-link">Limpar</button>
+                            </div>
+                        </form>
+
+                        <p id="perfilFeedback" class="users-feedback" role="status" aria-live="polite">Atualize seus dados e confirme com sua senha.</p>
+                    </article>
+                </section>
+
+                <section id="viewCurso" class="workspace-view" aria-label="Detalhe do curso">
+                    <article class="section-banner">
+                        <button type="button" id="btnVoltarCursos" class="back-btn" aria-label="Voltar para cursos">←</button>
+                        <div>
+                            <h3 id="cursoTitulo">Curso</h3>
+                            <p id="cursoDescricao">Descricao do curso.</p>
+                        </div>
+                    </article>
+
+                    <h3>Modulos</h3>
+                    <div id="listaModulosCurso" class="module-list"></div>
+
+                    <section id="moduloAulasSection" class="module-aulas-section">
+                        <h3>Aulas do modulo</h3>
+                        <p id="moduloSelecionadoResumo" class="view-help">Selecione um modulo para visualizar as aulas.</p>
+                        <div id="listaAulasCurso" class="lesson-list"></div>
+                    </section>
+                </section>
+
+                <section id="viewAula" class="workspace-view" aria-label="Player da aula">
+                    <article class="section-banner">
+                        <button type="button" id="btnVoltarCurso" class="back-btn" aria-label="Voltar para detalhe do curso">←</button>
+                        <div>
+                            <h3 id="aulaHeading">Aula</h3>
+                            <p id="aulaSubheading">Descricao da aula</p>
+                        </div>
+                    </article>
+
+                    <section class="player-card">
+                        <div id="aulaFrame" class="youtube-player" aria-label="Video da aula"></div>
+                        <div id="playerFallback" class="player-fallback">
+                            <p>Link de video invalido para iframe.</p>
+                        </div>
+                    </section>
+
+                    <div id="aulaNavegacao" class="aula-nav">
+                        <button type="button" id="btnAulaAnterior" class="btn-secondary">← Aula anterior</button>
+                        <span id="aulaPosicao" class="aula-posicao">Aula 0 de 0</span>
+                        <button type="button" id="btnAulaProxima" class="btn-secondary">Proxima aula →</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+</div>
+
+<script type="module" src="catalogo.js"></script>
+</body>
+</html>

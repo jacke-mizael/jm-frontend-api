@@ -1,0 +1,121 @@
+:root {
+    --bg: #f4f2ec;
+    --panel: #ffffff;
+    --text: #2d2a26;
+    --accent: #006d77;
+    --danger: #b42318;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: block;
+    font-family: "Nunito", "Segoe UI", sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 10% 20%, #dbe7e4 0%, var(--bg) 45%, #ece6dc 100%);
+}
+
+.card {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--panel);
+    border-radius: 0;
+    padding: 24px;
+    box-shadow: none;
+    animation: rise 500ms ease-out;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
+.card > * {
+    width: min(92vw, 520px);
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    margin: 0 0 16px;
+    font-size: 1.6rem;
+}
+
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 700;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cfd4d2;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+button {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: #fff;
+    background: var(--accent);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 150ms ease, opacity 150ms ease;
+    font-family: inherit;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+}
+
+button.secondary {
+    background: #3f3f46;
+}
+
+button.danger {
+    background: var(--danger);
+}
+
+.status {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f6f7f8;
+    min-height: 48px;
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+}
+
+.tip {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: #53504b;
+}
