@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscricao - Jackeline Mizael</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="inscricao.css">
+</head>
+<body>
+<main class="inscricao-page">
+    <header class="inscricao-header">
+        <h1>Formulário de inscrição</h1>
+        <p>Preencha os dados abaixo para iniciar seu processo de acesso na plataforma.</p>
+    </header>
+
+    <section class="form-wrapper" aria-label="Formulario de inscricao Pipefy">
+        <div id="iframeLoading" class="iframe-loading" role="status" aria-live="polite">Carregando formulario...</div>
+        <iframe
+            id="pipefyForm"
+            class="pipefy-form"
+            src="https://app.pipefy.com/public/form/MfwmP8sd"
+            title="Formulario de inscricao Pipefy"
+            loading="lazy"
+            allow="clipboard-write"
+        ></iframe>
+    </section>
+
+    <footer class="inscricao-footer">
+        <span>Problemas para abrir o formulário?</span>
+        <a href="https://app.pipefy.com/public/form/MfwmP8sd" target="_blank" rel="noopener noreferrer">Abrir em nova aba</a>
+    </footer>
+</main>
+
+<script src="inscricao.js"></script>
+</body>
+</html>

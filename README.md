@@ -13,6 +13,7 @@ Aplicação web em HTML, CSS e JavaScript (ES Modules) com:
 ## Estrutura do Frontend
 
 - [frontend/catalogo.html](frontend/catalogo.html): tela principal (login, catálogo, player, perfil)
+- [frontend/inscricao.html](frontend/inscricao.html): tela de formulario de inscricao (Pipefy embed)
 - [frontend/catalogo.css](frontend/catalogo.css): entrypoint de estilos
 - [frontend/styles](frontend/styles): módulos de estilo (base, auth, plataforma, conteúdo, responsivo)
 - [frontend/catalogo.js](frontend/catalogo.js): entrypoint JS do app
@@ -44,6 +45,7 @@ npx serve frontend -l 5500
 2. Abra no navegador:
 
 - http://localhost:5500/catalogo.html
+- http://localhost:5500/inscricao.html
 
 ### Configuração da URL da API
 
