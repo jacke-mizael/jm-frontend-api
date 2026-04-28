@@ -161,13 +161,13 @@ export function renderAulasLoading() {
 
 export function renderWelcome() {
     const nome = state.user?.nome || "Mentorada";
-    ui.welcomeTitle.textContent = `Ola, ${nome}`;
-    ui.welcomeText.textContent = "Voce esta no lugar certo para acelerar sua jornada de aprendizado.";
+    ui.welcomeTitle.textContent = `Olá, ${nome}`;
+    ui.welcomeText.textContent = "Você está no lugar certo para acelerar sua jornada de aprendizado.";
 }
 
 export function renderCursos() {
     if (!state.cursos.length) {
-        ui.cardsCursos.innerHTML = '<div class="empty-state">Nenhum curso disponivel no momento.</div>';
+        ui.cardsCursos.innerHTML = '<div class="empty-state">Nenhum curso disponível no momento.</div>';
         return;
     }
 
@@ -181,12 +181,12 @@ export function renderCursos() {
                 <img class="course-cover" src="${COURSE_COVER_IMAGE}" alt="Capa do curso ${escapeHtml(curso.nome)}">
                 <div class="course-body">
                     <strong>${escapeHtml(curso.nome)}</strong>
-                    <p>${escapeHtml(curso.descricao || "Trilha pratica para evolucao profissional.")}</p>
-                    <p>${modulos.length} modulos - ${aulas.length} aulas</p>
+                    <p>${escapeHtml(curso.descricao || "Trilha prática para evolução profissional.")}</p>
+                    <p>${modulos.length} módulos - ${aulas.length} aulas</p>
                     <div class="progress-track" aria-label="Progresso visual do curso">
                         <span style="width:${progress.percent}%"></span>
                     </div>
-                    <p>${progress.watched}/${progress.total} aulas concluidas (${progress.percent}%)</p>
+                    <p>${progress.watched}/${progress.total} aulas concluídas (${progress.percent}%)</p>
                 </div>
             </article>
         `;
@@ -209,7 +209,7 @@ export function renderModulosCurso() {
     const modulos = getModulosByCurso(state.selectedCursoId);
 
     if (!modulos.length) {
-        ui.listaModulosCurso.innerHTML = '<div class="empty-state">Esse curso ainda nao possui modulos.</div>';
+        ui.listaModulosCurso.innerHTML = '<div class="empty-state">Esse curso ainda não possui módulos.</div>';
         toggleModuloAulasSection(false);
         return;
     }
@@ -218,13 +218,13 @@ export function renderModulosCurso() {
         const progress = getModuloCompletionState(modulo.id);
         const active = toNumericId(modulo.id) === state.selectedModuloId;
         const complete = progress.total > 0 && progress.watched === progress.total;
-        const moduloNome = modulo.titulo || "Modulo sem titulo";
+        const moduloNome = modulo.titulo || "Módulo sem título";
 
         return `
             <button type="button" class="module-row ${active ? "is-active" : ""}" data-modulo-id="${modulo.id}">
                 <div class="module-copy">
-                    <strong>Modulo ${modulo.ordem ?? "-"}: ${escapeHtml(moduloNome)}</strong>
-                    <small>${progress.watched}/${progress.total} aulas concluidas</small>
+                    <strong>Módulo ${modulo.ordem ?? "-"}: ${escapeHtml(moduloNome)}</strong>
+                    <small>${progress.watched}/${progress.total} aulas concluídas</small>
                     <div class="module-progress"><span style="width:${progress.percent}%"></span></div>
                 </div>
                 <span class="module-status ${complete ? "is-complete" : ""}">${progress.percent}%</span>
@@ -246,14 +246,14 @@ export function renderModulosCurso() {
             state.selectedModuloId = moduloId;
             state.selectedAulaId = null;
 
-            setStatus("Carregando aulas do modulo...", UI_STATES.loading);
+            setStatus("Carregando aulas do módulo...", UI_STATES.loading);
             toggleModuloAulasSection(true);
             renderAulasLoading();
 
             requestAnimationFrame(() => {
                 renderModulosCurso();
                 renderAulasModulo();
-                setStatus("Modulo carregado. Escolha uma aula para iniciar.", UI_STATES.success);
+                setStatus("Módulo carregado. Escolha uma aula para iniciar.", UI_STATES.success);
             });
         });
     });
@@ -264,19 +264,19 @@ export function renderAulasModulo() {
 
     if (!modulo) {
         toggleModuloAulasSection(false);
-        ui.moduloSelecionadoResumo.textContent = "Selecione um modulo para visualizar as aulas.";
-        ui.listaAulasCurso.innerHTML = '<div class="empty-state">Selecione um modulo.</div>';
+        ui.moduloSelecionadoResumo.textContent = "Selecione um módulo para visualizar as aulas.";
+        ui.listaAulasCurso.innerHTML = '<div class="empty-state">Selecione um módulo.</div>';
         return;
     }
 
     toggleModuloAulasSection(true);
 
     const aulas = getAulasByModulo(modulo.id);
-    const moduloNome = modulo.titulo || aulas[0]?.moduloTitulo || "Modulo sem titulo";
-    ui.moduloSelecionadoResumo.textContent = `Modulo selecionado: ${moduloNome}`;
+    const moduloNome = modulo.titulo || aulas[0]?.moduloTitulo || "Módulo sem título";
+    ui.moduloSelecionadoResumo.textContent = `Módulo selecionado: ${moduloNome}`;
 
     if (!aulas.length) {
-        ui.listaAulasCurso.innerHTML = '<div class="empty-state">Esse modulo ainda nao possui aulas publicadas.</div>';
+        ui.listaAulasCurso.innerHTML = '<div class="empty-state">Esse módulo ainda não possui aulas publicadas.</div>';
         return;
     }
 
@@ -286,10 +286,10 @@ export function renderAulasModulo() {
         const active = state.selectedAulaId === toNumericId(aula.id);
         const thumb = buildYouTubeThumbUrl(aula.linkYoutube, COURSE_COVER_IMAGE);
         const progressLabel = watched
-            ? "Video finalizado com sucesso"
+            ? "Vídeo finalizado com sucesso"
             : progress > 0
                 ? `Assistido ${progress}%`
-                : "Nao iniciada";
+                : "Não iniciada";
 
         return `
             <button type="button" class="lesson-row ${active ? "is-current" : ""} ${watched ? "is-watched" : ""}" data-aula-id="${aula.id}">
@@ -298,8 +298,8 @@ export function renderAulasModulo() {
                     <span class="lesson-check ${watched ? "is-watched" : ""}">${watched ? "&#10003;" : ""}</span>
                 </div>
                 <div class="lesson-copy">
-                    <strong>Aula ${idx + 1} - ${escapeHtml(aula.titulo || "Sem titulo")}</strong>
-                    <small>${escapeHtml(aula.descricao || "Sem descricao")}</small>
+                    <strong>Aula ${idx + 1} - ${escapeHtml(aula.titulo || "Sem título")}</strong>
+                    <small>${escapeHtml(aula.descricao || "Sem descrição")}</small>
                     <span class="lesson-progress-label">${progressLabel}</span>
                     <span class="lesson-line"><span class="lesson-line-fill" style="width:${progress}%"></span></span>
                 </div>
@@ -332,7 +332,7 @@ export function renderCertificados() {
         return `
             <article class="cert-card">
                 <h4>${escapeHtml(curso.nome)}</h4>
-                <p>${progress.watched}/${progress.total} aulas concluidas (${progress.percent}%)</p>
+                <p>${progress.watched}/${progress.total} aulas concluídas (${progress.percent}%)</p>
                 <span class="cert-status ${isReleased ? "done" : "pending"}">${isReleased ? "Liberado" : "Em andamento"}</span>
                 <button type="button" class="cert-action" data-cert-curso-id="${curso.id}" ${isReleased ? "" : "disabled"}>Baixar certificado</button>
             </article>
@@ -343,7 +343,7 @@ export function renderCertificados() {
         button.addEventListener("click", () => {
             const cursoId = toNumericId(button.dataset.certCursoId);
             const curso = getCursoById(cursoId);
-            setStatus(`Certificado de ${curso?.nome || "curso"} disponivel para emissao.`, UI_STATES.success);
+            setStatus(`Certificado de ${curso?.nome || "curso"} disponível para emissão.`, UI_STATES.success);
         });
     });
 }
@@ -388,7 +388,7 @@ function applyRolePolicy() {
     if (role === "ALUNO") {
         ui.usuarioRole.value = "ALUNO";
         ui.usuarioRole.disabled = true;
-        ui.roleLockHint.textContent = "Seu perfil e ALUNO. Este campo e bloqueado e apenas um ADMIN pode alterar esse tipo de permissao.";
+        ui.roleLockHint.textContent = "Seu perfil é ALUNO. Este campo é bloqueado e apenas um ADMIN pode alterar esse tipo de permissão.";
         return;
     }
 
@@ -422,7 +422,7 @@ export function buildProfilePayload() {
         : ui.usuarioRole.value.trim().toUpperCase();
 
     if (!role) {
-        throw new Error("O perfil do usuario e obrigatorio.");
+        throw new Error("O perfil do usuário é obrigatório.");
     }
 
     return {
@@ -483,18 +483,18 @@ export function openCurso(cursoId) {
 
     const curso = getCursoById(state.selectedCursoId);
     ui.cursoTitulo.textContent = curso?.nome || "Curso";
-    ui.cursoDescricao.textContent = curso?.descricao || "Escolha um modulo para exibir as aulas.";
+    ui.cursoDescricao.textContent = curso?.descricao || "Escolha um módulo para exibir as aulas.";
 
     toggleModuloAulasSection(false);
-    ui.moduloSelecionadoResumo.textContent = "Selecione um modulo para visualizar as aulas.";
-    ui.listaAulasCurso.innerHTML = '<div class="empty-state">As aulas aparecem aqui apos selecionar um modulo.</div>';
+    ui.moduloSelecionadoResumo.textContent = "Selecione um módulo para visualizar as aulas.";
+    ui.listaAulasCurso.innerHTML = '<div class="empty-state">As aulas aparecem aqui após selecionar um módulo.</div>';
 
     renderModulosCurso();
     updateAulaNavigation();
 
     setMenuActive("cursos");
     showView("curso");
-    setStatus("Curso aberto. Selecione um modulo para continuar.", UI_STATES.success);
+    setStatus("Curso aberto. Selecione um módulo para continuar.", UI_STATES.success);
 }
 
 export function openAula(aulaId) {
@@ -504,7 +504,7 @@ export function openAula(aulaId) {
     const modulo = getModuloById(aula?.moduloId);
 
     if (!aula) {
-        setStatus("Aula nao encontrada no catalogo.", UI_STATES.error);
+        setStatus("Aula não encontrada no catálogo.", UI_STATES.error);
         return;
     }
 
@@ -515,10 +515,10 @@ export function openAula(aulaId) {
 
     const curso = getCursoById(state.selectedCursoId);
     state.selectedAulaId = toNumericId(aulaId);
-    const moduloNome = modulo?.titulo || aula.moduloTitulo || "Modulo";
+    const moduloNome = modulo?.titulo || aula.moduloTitulo || "Módulo";
 
     ui.aulaHeading.textContent = `${curso?.nome || "Curso"} > ${moduloNome} > ${aula.titulo || "Aula"}`;
-    ui.aulaSubheading.textContent = aula.descricao || "Continue sua evolucao com esta aula.";
+    ui.aulaSubheading.textContent = aula.descricao || "Continue sua evolução com esta aula.";
 
     ui.playerFallback.classList.remove("is-visible");
 

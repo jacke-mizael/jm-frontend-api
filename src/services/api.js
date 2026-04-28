@@ -43,7 +43,7 @@ export async function api(path, options = {}) {
 
     if (auth) {
         if (!state.token) {
-            throw new Error("Sessao expirada. Faca login novamente.");
+            throw new Error("Sessão expirada. Faça login novamente.");
         }
         headers.Authorization = `Bearer ${state.token}`;
     }

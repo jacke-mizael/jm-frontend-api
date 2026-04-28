@@ -119,7 +119,7 @@ export async function login() {
         });
 
         if (!payload.token) {
-            throw new Error("Token JWT nao retornado pelo backend.");
+            throw new Error("Token JWT não retornado pelo backend.");
         }
 
         saveToken(payload.token);
@@ -146,13 +146,13 @@ export async function registerUser() {
     const senhaConfirmacao = ui.cadastroSenhaConfirmacao.value.trim();
 
     if (!isValidEmail(state.pendingCadastroEmail)) {
-        setAuthState("Informe um e-mail valido para cadastro.", UI_STATES.error);
+        setAuthState("Informe um e-mail válido para cadastro.", UI_STATES.error);
         showCadastroStep(CADASTRO_STEPS.email);
         return;
     }
 
     if (!nome || !telefone || !senha || !senhaConfirmacao) {
-        setAuthState("Preencha nome, telefone, senha e confirmacao de senha.", UI_STATES.error);
+        setAuthState("Preencha nome, telefone, senha e confirmação de senha.", UI_STATES.error);
         return;
     }
 
@@ -162,7 +162,7 @@ export async function registerUser() {
     }
 
     if (senha !== senhaConfirmacao) {
-        setAuthState("A confirmacao de senha precisa ser igual a senha.", UI_STATES.error);
+        setAuthState("A confirmação de senha precisa ser igual à senha.", UI_STATES.error);
         return;
     }
 
@@ -190,7 +190,7 @@ export async function registerUser() {
         resetCadastroForm();
         setAuthMode(AUTH_MODES.login, { resetStep: false });
         showAuthStep(AUTH_STEPS.senha);
-        setAuthState("Cadastro concluido. Agora informe sua senha para entrar.", UI_STATES.success);
+        setAuthState("Cadastro concluído. Agora informe sua senha para entrar.", UI_STATES.success);
     } catch (error) {
         setAuthState(error.message, UI_STATES.error);
     } finally {
@@ -206,7 +206,7 @@ export async function logout() {
             await api("/auth/logout", { method: "POST" });
         }
     } catch (_error) {
-        // Mesmo que o backend recuse, a sessao local deve ser encerrada no frontend.
+        // Mesmo que o backend recuse, a sessão local deve ser encerrada no frontend.
     }
 
     clearToken();
@@ -219,7 +219,7 @@ export async function logout() {
     showScene("login");
     resetCadastroForm();
     setAuthMode(AUTH_MODES.login, { resetStep: true });
-    setAuthState("Sessao encerrada.", UI_STATES.success);
+    setAuthState("Sessão encerrada.", UI_STATES.success);
 }
 
 export function bindImageFallback() {
@@ -251,7 +251,7 @@ export async function savePerfil(event) {
 
     const userId = state.user?.usuarioId;
     if (!userId) {
-        setProfileFeedback("Sessao invalida para atualizar o perfil.", UI_STATES.error);
+        setProfileFeedback("Sessão inválida para atualizar o perfil.", UI_STATES.error);
         return;
     }
 

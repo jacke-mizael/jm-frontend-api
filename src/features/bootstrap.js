@@ -57,12 +57,12 @@ function bindEvents() {
 
         const email = ui.inputEmail.value.trim();
         if (!isValidEmail(email)) {
-            setAuthState("Digite um e-mail valido.", UI_STATES.error);
+            setAuthState("Digite um e-mail válido.", UI_STATES.error);
             return;
         }
 
         state.pendingEmail = email;
-        setAuthState("Email confirmado.", UI_STATES.success);
+        setAuthState("E-mail confirmado.", UI_STATES.success);
         showAuthStep(AUTH_STEPS.senha);
     });
 
@@ -80,12 +80,12 @@ function bindEvents() {
 
         const email = ui.cadastroEmail.value.trim();
         if (!isValidEmail(email)) {
-            setAuthState("Digite um e-mail valido para cadastro.", UI_STATES.error);
+            setAuthState("Digite um e-mail válido para cadastro.", UI_STATES.error);
             return;
         }
 
         state.pendingCadastroEmail = email;
-        setAuthState("Email confirmado para cadastro.", UI_STATES.success);
+        setAuthState("E-mail confirmado para cadastro.", UI_STATES.success);
         showCadastroStep(CADASTRO_STEPS.senha);
     });
 
@@ -132,20 +132,20 @@ function bindEvents() {
         cursos: () => {
             setMenuActive("cursos");
             showView("cursos");
-            setStatus("Catalogo principal aberto.", UI_STATES.success);
+            setStatus("Catálogo principal aberto.", UI_STATES.success);
         },
         certificados: () => {
             setMenuActive("certificados");
             renderCertificados();
             showView("certificados");
-            setStatus("Area de certificados aberta.", UI_STATES.success);
+            setStatus("Área de certificados aberta.", UI_STATES.success);
         },
         perfil: () => {
             setMenuActive("perfil");
             renderPerfilResumo();
             syncProfileFormFromSession();
             showView("perfil");
-            setStatus("Area de perfil aberta.", UI_STATES.success);
+            setStatus("Área de perfil aberta.", UI_STATES.success);
         }
     };
 
@@ -232,6 +232,6 @@ export async function bootstrapApp() {
         resetSessionState();
         showScene("login");
         setAuthMode(AUTH_MODES.login, { resetStep: true });
-        setStatus(`Sessao expirada: ${error.message}`, UI_STATES.error);
+        setStatus(`Sessão expirada: ${error.message}`, UI_STATES.error);
     }
 }

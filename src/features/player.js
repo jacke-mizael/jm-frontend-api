@@ -85,7 +85,7 @@ function updateWatchMetricFromPlayback(aulaId, duration, watchedSeconds, isEnded
     }
 
     if (completionTurnedTrue) {
-        setStatus("Video finalizado com sucesso. Progresso atualizado para 100%.", UI_STATES.success);
+        setStatus("Vídeo finalizado com sucesso. Progresso atualizado para 100%.", UI_STATES.success);
     }
 }
 
@@ -183,7 +183,7 @@ function ensureYouTubeApi() {
             script.src = "https://www.youtube.com/iframe_api";
             script.dataset.youtubeApi = "true";
             script.async = true;
-            script.onerror = () => reject(new Error("Nao foi possivel carregar a API do YouTube."));
+            script.onerror = () => reject(new Error("Não foi possível carregar a API do YouTube."));
             document.head.appendChild(script);
         }
 
@@ -206,7 +206,7 @@ function ensureYouTubeApi() {
 
             if (attempts > 40) {
                 window.clearInterval(pollId);
-                reject(new Error("API do YouTube indisponivel no momento."));
+                reject(new Error("API do YouTube indisponível no momento."));
             }
         }, 250);
     });
@@ -262,7 +262,7 @@ function handlePlayerStateChange(event) {
         updateWatchMetricFromPlayback(playerRuntime.activeAulaId, duration, watched, canComplete, currentTime);
 
         if (!canComplete) {
-            setStatus("Video encerrado, mas ainda faltam trechos para validar 100%.", UI_STATES.info);
+            setStatus("Vídeo encerrado, mas ainda faltam trechos para validar 100%.", UI_STATES.info);
         }
     }
 }
@@ -271,12 +271,12 @@ export async function loadYoutubeAula(aula) {
     const videoId = getYouTubeVideoId(aula.linkYoutube);
     if (!videoId) {
         ui.playerFallback.classList.add("is-visible");
-        setStatus("Link da aula nao e um YouTube valido para validacao de conclusao.", UI_STATES.error);
+        setStatus("Link da aula não é um YouTube válido para validação de conclusão.", UI_STATES.error);
         return;
     }
 
     try {
-        setStatus("Carregando video da aula...", UI_STATES.loading);
+        setStatus("Carregando vídeo da aula...", UI_STATES.loading);
         await ensureYouTubeApi();
 
         stopPlayerInterval();
@@ -285,8 +285,8 @@ export async function loadYoutubeAula(aula) {
         const existingMetric = getAulaMetric(aula);
         const resumeSeconds = getResumePositionSeconds(existingMetric);
         const readyMessage = resumeSeconds > 0
-            ? "Video retomado de onde voce parou."
-            : "Video pronto. A validacao acontece pelo tempo real assistido.";
+            ? "Vídeo retomado de onde você parou."
+            : "Vídeo pronto. A validação acontece pelo tempo real assistido.";
 
         playerRuntime.activeAulaId = aula.id;
         playerRuntime.accumulatedSeconds = Number(existingMetric?.watchedSeconds) || 0;
@@ -316,7 +316,7 @@ export async function loadYoutubeAula(aula) {
                     onError: () => {
                         clearFirstReadyTimeout();
                         ui.playerFallback.classList.add("is-visible");
-                        setStatus("Nao foi possivel reproduzir o video desta aula.", UI_STATES.error);
+                        setStatus("Não foi possível reproduzir o vídeo desta aula.", UI_STATES.error);
                     }
                 }
             });

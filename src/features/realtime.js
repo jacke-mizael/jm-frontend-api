@@ -133,7 +133,7 @@ function refreshViewsAfterCatalogSync() {
 
         if (curso) {
             ui.cursoTitulo.textContent = curso.nome || "Curso";
-            ui.cursoDescricao.textContent = curso.descricao || "Escolha um modulo para exibir as aulas.";
+            ui.cursoDescricao.textContent = curso.descricao || "Escolha um módulo para exibir as aulas.";
             renderModulosCurso();
         }
     }
@@ -142,8 +142,8 @@ function refreshViewsAfterCatalogSync() {
         renderAulasModulo();
     } else {
         toggleModuloAulasSection(false);
-        ui.moduloSelecionadoResumo.textContent = "Selecione um modulo para visualizar as aulas.";
-        ui.listaAulasCurso.innerHTML = '<div class="empty-state">As aulas aparecem aqui apos selecionar um modulo.</div>';
+        ui.moduloSelecionadoResumo.textContent = "Selecione um módulo para visualizar as aulas.";
+        ui.listaAulasCurso.innerHTML = '<div class="empty-state">As aulas aparecem aqui após selecionar um módulo.</div>';
     }
 
     if (state.selectedAulaId !== null) {
@@ -156,9 +156,9 @@ function refreshViewsAfterCatalogSync() {
                 showView(state.selectedCursoId ? "curso" : "cursos");
             }
         } else {
-            const moduloNome = modulo?.titulo || aula.moduloTitulo || "Modulo";
+            const moduloNome = modulo?.titulo || aula.moduloTitulo || "Módulo";
             ui.aulaHeading.textContent = `${curso?.nome || "Curso"} > ${moduloNome} > ${aula.titulo || "Aula"}`;
-            ui.aulaSubheading.textContent = aula.descricao || "Continue sua evolucao com esta aula.";
+            ui.aulaSubheading.textContent = aula.descricao || "Continue sua evolução com esta aula.";
         }
     }
 
@@ -193,7 +193,7 @@ export async function syncCatalogRealtime(silent = true) {
 
         applyCatalogData(safeCursos, safeModulos, safeAulas);
         refreshViewsAfterCatalogSync();
-        setStatus("Cursos, modulos e aulas atualizados em tempo real.", UI_STATES.success);
+        setStatus("Cursos, módulos e aulas atualizados em tempo real.", UI_STATES.success);
     } catch (error) {
         if (!silent) {
             setStatus(error.message, UI_STATES.error);
@@ -222,7 +222,7 @@ export function stopRealtimeSync() {
 
 export async function loadPlatformData() {
     stopRealtimeSync();
-    setStatus("Carregando cursos, modulos e aulas...", UI_STATES.loading);
+    setStatus("Carregando cursos, módulos e aulas...", UI_STATES.loading);
     renderCursosLoading();
 
     const [user, cursos, modulos, aulas] = await Promise.all([
@@ -246,7 +246,7 @@ export async function loadPlatformData() {
 
     setMenuActive("cursos");
     showView("cursos");
-    setStatus(`Catalogo carregado com ${state.cursos.length} cursos.`, UI_STATES.success);
+    setStatus(`Catálogo carregado com ${state.cursos.length} cursos.`, UI_STATES.success);
 
     startRealtimeSync();
 }

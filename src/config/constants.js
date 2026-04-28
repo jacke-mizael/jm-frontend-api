@@ -35,13 +35,13 @@ export const WATCH_RULES = {
 };
 
 export const STATUS_MESSAGE_SUPPRESSION_PATTERNS = [
-    /^video pronto\./,
-    /^video retomado de onde voce parou\./,
-    /^carregando video da aula\.{3}$/,
-    /^catalogo principal aberto\.$/,
-    /^area de certificados aberta\.$/,
-    /^area de perfil aberta\.$/,
-    /^cursos, modulos e aulas atualizados em tempo real\.$/
+    /^vídeo pronto\./,
+    /^vídeo retomado de onde você parou\./,
+    /^carregando vídeo da aula\.{3}$/,
+    /^catálogo principal aberto\.$/,
+    /^área de certificados aberta\.$/,
+    /^área de perfil aberta\.$/,
+    /^cursos, módulos e aulas atualizados em tempo real\.$/
 ];
 
 export const REALTIME_SYNC_INTERVAL_MS = 6000;

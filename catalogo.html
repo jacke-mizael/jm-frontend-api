@@ -40,7 +40,7 @@
                         <label for="inputEmail">E-mail</label>
                         <input id="inputEmail" type="email" placeholder="Seu e-mail" autocomplete="email" required>
                         <div class="form-actions single-action">
-                            <button id="btnContinuarEmail" type="submit" class="btn-primary">Proximo</button>
+                            <button id="btnContinuarEmail" type="submit" class="btn-primary">Próximo</button>
                         </div>
                     </form>
 
@@ -54,7 +54,7 @@
                         <p id="senhaEmailHint" class="auth-step-hint">Entrando com: -</p>
                     </form>
 
-                    <p class="auth-inline-switch" hidden>Nao tem conta? <button type="button" id="btnIrCadastro" class="btn-inline" title="Cadastro temporariamente desativado" disabled>Cadastro indisponivel</button></p>
+                    <p class="auth-inline-switch" hidden>Não tem conta? <button type="button" id="btnIrCadastro" class="btn-inline" title="Cadastro temporariamente desativado" disabled>Cadastro indisponível</button></p>
                 </div>
 
                 <div id="authFlowCadastro" class="auth-flow" aria-hidden="true" hidden>
@@ -62,7 +62,7 @@
                         <label for="cadastroEmail">E-mail</label>
                         <input id="cadastroEmail" type="email" placeholder="Seu melhor e-mail" autocomplete="email" required>
                         <div class="form-actions single-action">
-                            <button id="btnContinuarCadastroEmail" type="submit" class="btn-primary">Proximo</button>
+                            <button id="btnContinuarCadastroEmail" type="submit" class="btn-primary">Próximo</button>
                         </div>
                     </form>
 
@@ -87,7 +87,7 @@
                         </div>
                     </form>
 
-                    <p class="auth-inline-switch">Ja possui conta? <button type="button" id="btnIrLogin" class="btn-inline">Fazer login</button></p>
+                    <p class="auth-inline-switch">Já possui conta? <button type="button" id="btnIrLogin" class="btn-inline">Fazer login</button></p>
                 </div>
 
                 <p id="authState" class="auth-feedback" role="status" aria-live="polite">Informe seu e-mail para continuar.</p>
@@ -129,7 +129,7 @@
                         type="button"
                         id="btnMenuToggle"
                         class="menu-toggle"
-                        aria-label="Abrir menu de navegacao"
+                        aria-label="Abrir menu de navegação"
                         aria-controls="sidebar"
                         aria-expanded="false"
                     >
@@ -142,8 +142,8 @@
                 <p id="statusLine" class="status-line" role="status" aria-live="polite">Carregando plataforma...</p>
 
                 <section class="welcome-card">
-                    <h2 id="welcomeTitle">Ola!</h2>
-                    <p id="welcomeText">Voce esta no lugar certo para acelerar sua jornada.</p>
+                    <h2 id="welcomeTitle">Olá!</h2>
+                    <p id="welcomeText">Você está no lugar certo para acelerar sua jornada.</p>
                 </section>
 
                 <section id="viewCursos" class="workspace-view is-visible" aria-label="Lista de cursos">
@@ -193,7 +193,7 @@
                     <article class="profile-card profile-management">
                         <div class="profile-management-head">
                             <h4>Meu perfil</h4>
-                            <p>Atualize apenas seus dados pessoais sem impactar as regras de negocio da plataforma.</p>
+                            <p>Atualize apenas seus dados pessoais sem impactar as regras de negócio da plataforma.</p>
                         </div>
 
                         <form id="usuarioForm" class="user-form" novalidate>
@@ -225,7 +225,7 @@
 
                             <label class="field field-full">
                                 <span>Senha</span>
-                                <input id="usuarioSenha" type="password" placeholder="Obrigatoria para atualizar" required>
+                                <input id="usuarioSenha" type="password" placeholder="Obrigatória para atualizar" required>
                             </label>
 
                             <div class="user-form-actions field-full">
@@ -244,16 +244,16 @@
                         <button type="button" id="btnVoltarCursos" class="back-btn" aria-label="Voltar para cursos">←</button>
                         <div>
                             <h3 id="cursoTitulo">Curso</h3>
-                            <p id="cursoDescricao">Descricao do curso.</p>
+                            <p id="cursoDescricao">Descrição do curso.</p>
                         </div>
                     </article>
 
-                    <h3>Modulos</h3>
+                    <h3>Módulos</h3>
                     <div id="listaModulosCurso" class="module-list"></div>
 
                     <section id="moduloAulasSection" class="module-aulas-section">
-                        <h3>Aulas do modulo</h3>
-                        <p id="moduloSelecionadoResumo" class="view-help">Selecione um modulo para visualizar as aulas.</p>
+                        <h3>Aulas do módulo</h3>
+                        <p id="moduloSelecionadoResumo" class="view-help">Selecione um módulo para visualizar as aulas.</p>
                         <div id="listaAulasCurso" class="lesson-list"></div>
                     </section>
                 </section>
@@ -263,21 +263,21 @@
                         <button type="button" id="btnVoltarCurso" class="back-btn" aria-label="Voltar para detalhe do curso">←</button>
                         <div>
                             <h3 id="aulaHeading">Aula</h3>
-                            <p id="aulaSubheading">Descricao da aula</p>
+                            <p id="aulaSubheading">Descrição da aula</p>
                         </div>
                     </article>
 
                     <section class="player-card">
-                        <div id="aulaFrame" class="youtube-player" aria-label="Video da aula"></div>
+                        <div id="aulaFrame" class="youtube-player" aria-label="Vídeo da aula"></div>
                         <div id="playerFallback" class="player-fallback">
-                            <p>Link de video invalido para iframe.</p>
+                            <p>Link de vídeo inválido para iframe.</p>
                         </div>
                     </section>
 
                     <div id="aulaNavegacao" class="aula-nav">
                         <button type="button" id="btnAulaAnterior" class="btn-secondary">← Aula anterior</button>
                         <span id="aulaPosicao" class="aula-posicao">Aula 0 de 0</span>
-                        <button type="button" id="btnAulaProxima" class="btn-secondary">Proxima aula →</button>
+                        <button type="button" id="btnAulaProxima" class="btn-secondary">Próxima aula →</button>
                     </div>
                 </section>
             </main>
